@@ -1,4 +1,5 @@
 FROM lindenlab.com/java:jre
 
 ADD raml-parser.jar /
-CMD ["java", "-jar", "raml-parser.jar", "/proc/self/fd/0"]
+ENTRYPOINT ["java", "-jar", "raml-parser.jar"]
+CMD ["/proc/self/fd/0"]

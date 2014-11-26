@@ -1,2 +1,6 @@
 #!/bin/bash
-cat "$1" | docker run -i --rm lindenlab.com/raml/java-parser
+RAML="$1"
+RAML_FILE="$(basename "$1")"
+RAML_FQN="$(pwd)/${RAML#.}"
+
+docker run --rm -v "$RAML_FQN":"/$RAML_FILE" lindenlab.com/raml/java-parser "$RAML_FILE"
