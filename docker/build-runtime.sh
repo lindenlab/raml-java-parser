@@ -8,3 +8,4 @@ ROOT="$(dirname "$HERE")"
 
 cp "$ROOT/target/"raml-parser-*.jar "$HERE/runtime/raml-parser.jar"
 docker build -t lindenlab.com/raml/java-parser "$HERE/runtime"
+rm "$HERE/runtime/raml-parser.jar"
